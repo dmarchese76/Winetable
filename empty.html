@@ -158,11 +158,10 @@ table_head.append(headerRow);
 
 wines.forEach(function (wine) {
     let tr = document.createElement("tr");
-     `<td>${wine.Year.toLocaleString}</td>
-       <td>${wine.TotalWineperResident.toLocaleString()}</td>
-        <td>${wine.TotalWineGallons.toLocaleString()}</td>`;
-    table_body.append(tr);
-    tr.innerHTML = row;
+    tr.innerHTML = `<td>${wine.Year}</td>
+                    <td>${wine["Total Wine per Resident"]}</td>
+                    <td>${wine["Total Wine Gallons"]}</td>`;
+    table_body.appendChild(tr);
 });
 
 
