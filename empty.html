@@ -151,17 +151,18 @@ let headerRow = document.createElement("tr");
 headers.forEach(function (head) {
     let th = document.createElement("th");
     th.textContent = head;
-    headerRow.appendChild(th);
+    headerRow.append(th);
 });
-table_head.appendChild(headerRow);
+table_head.append(headerRow);
 
 
 wines.forEach(function (wine) {
     let tr = document.createElement("tr");
-    tr.innerHTML = `<td>${wine.Year}</td>
-                    <td>${wine["Total Wine per Resident"]}</td>
-                    <td>${wine["Total Wine Gallons"]}</td>`;
-    table_body.appendChild(tr);
+     `<td>${wine.Year.toLocaleString}</td>
+       <td>${wine.TotalWineperResident.toLocaleString()}</td>
+        <td>${wine.TotalWineGallons.toLocaleString()}</td>`;
+    table_body.append(tr);
+    tr.innerHTML = row;
 });
 
 
