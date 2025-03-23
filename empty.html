@@ -1,170 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Card Starter</title>
-    <style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-      h1{
-         font-family: "Montserrat", serif;
-         font-weight: 600;
-        font-style: normal;
-        margin: 10px 0px 20px 10px;
-        padding: auto;
-      
-      }
-      h3{
-        font-family: "Noto Sans", serif;
-        font-weight: 400;
-        font-style: normal;
-        margin: 10px;
-      
-        
-      }
-      .big-container {
-        display: inline-block;     
-        vertical-align: text-top;
-        margin: 10px 0px 20px 10px;
-        border: 6px double rgb(63, 61, 61);
-        padding: 10px 0px;
-         
-     }
-      #NorthAmerica{
-        background-color: #b942f0;
-        border: 4px groove #fbf8cc;
-      }
-      table {
-            gap: 0;
-        }
-
-        th {
-            border-bottom: 2px solid black;
-            text-align: left;
-            vertical-align: bottom;
-        }
-
-
-        td, th {
-        padding: 0.75em;
-        gap: 0;
-        }
-
-      .box{
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Wine Consumption is decreasing</title>
+   
+   <style>
+    #container {
         display: flex;
-        gap: 10px;
+        vertical-align: top;
+        margin: 5px;
         flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin: 0%;
-        max-width: 768px;
-        vertical-align: text-top;
+        justify-content: space-around;
         flex-wrap: wrap;
-        background-color: #b171f9;
-        
-      }
-    
-      p{
-        font-family: "Noto Sans", serif;
-        font-weight: 200;
-        font-style: normal;
-        line-height: 24px;
-        margin: 10px;
-        
-        
-      }
-      .highlight1{
-        color: #67e47a;
-        font-weight: 600;
+    }
 
-      }
-      .highlight2{
-        color: #4de5f6;
-        font-weight: 600;
-      }
-     
-      @media (min-width: 991px) and (max-width: 1199px) {
-        .big-container{
-          max-width: 768px;
-          flex-wrap: wrap;
+    .cards {  /* Removed #container > div.cards */
+        width: 300px;
+        height: auto;
+        border: 5px solid #2a1616;
+        border-radius: 15px;
+        padding: 20px;
+        margin: 10px;
+        background-color: #5d0404;
+        text-align: center;
+    }
+    
+    @media (max-width: 600px) {
+        #container {
+            width: 250px;
         }
-      }
-      @media (max-width: 600px)
-{       .big-container{
-          max-width: 350px;
-          flex-wrap: wrap;
-         
-        }
-      }
-      @media (min-width: 600px) and (max-width: 990px) {
-        .big-container{
-          max-width: 768px;
-          flex-wrap: wrap;
-        }
-      }
-    </style>
+    }
+
+    h1 {
+        font-family: "Merriweather Sans", sans-serif;
+        font-weight: bold;
+        font-size: 1.5em;
+        color: #b7bfc0;
+        text-align: center;
+    }
+        
+    h2 {
+        font-family: "Merriweather Sans", sans-serif;
+        font-size: 1em;
+        color: #1c2a34;
+        text-align: justify;
+        line-height: 25px;
+    }
+
+    ul {
+        font-family: "Merriweather Sans", sans-serif;
+        font-size: 1em;
+        color: #c76c11;
+        line-height: 30px;
+        list-style-type: square;
+        padding-left: 0;
+    }
+    li {
+        list-style: none;
+    }
+   </style>  
 </head>
 <body>
-  <div class="box">
-  
-    <div>
-      <div id="NorthAmerica" class="big-container">
-        <h1> North America</h1>
-        <H3> The Wine Industry in North America was the biggest importer in the world in 2024</H3>     
-        <p>According to U.S. Census Bureau Trade Data, North America exported <span class="highlight1"> $460 million in 2024</span>, which is <span class="highlight1">$8 million less than in 2023</span></p>
-      </div>
-      <div id= "UnitedStates" class="big-container">
-        <h1> United States</h1>
-        <H3> The Wine consumption in the U.S. has been declining over the last decade.</H3>
-        <p> Except for 2020, when it increased from<span class="highlight2"> 2.19 gals per resident in 2019 to 3.12 gals in 2020</span>, a trend that conitued during 2021 reaching a<span class="highlight2"> 3.16 gals per resident, before dropping again to 2.96 in 2022.</span></p>
-        
+    <div id="container"></div>
+
+    <script>
+        const wines = [
+            { "Year": 2023, "Total Wine per Resident": "2.68 gals", "Total Wine Gallons": "899 million" },
+            { "Year": 2022, "Total Wine per Resident": "2.96 gals", "Total Wine Gallons": "986 million" },
+            { "Year": 2021, "Total Wine per Resident": "3.16 gals", "Total Wine Gallons": "1.06 billion" },
+            { "Year": 2020, "Total Wine per Resident": "3.12 gals", "Total Wine Gallons": "1.04 billion" },
+            { "Year": 2019, "Total Wine per Resident": "2.94 gals", "Total Wine Gallons": "971 million" },
+            { "Year": 2018, "Total Wine per Resident": "3.00 gals", "Total Wine Gallons": "982 million" },
+            { "Year": 2017, "Total Wine per Resident": "2.97 gals", "Total Wine Gallons": "947 million" },
+            { "Year": 2016, "Total Wine per Resident": "2.93 gals", "Total Wine Gallons": "968 million" },
+            { "Year": 2015, "Total Wine per Resident": "2.87 gals", "Total Wine Gallons": "923 million" }
+        ];
+
+        let container = document.getElementById("container");
+
+        function makecards(Year, TotalWineperResident, TotalWineGallons) {
+            let elementDiv = document.createElement("div");
+            elementDiv.classList.add("cards");
+
+            let cardText = `
+                <h1>${Year}</h1>
+                <ul>
+                    <li><strong>Total Wine per Resident:</strong> ${TotalWineperResident}</li>
+                    <li><strong>Total Wine Gallons:</strong> ${TotalWineGallons}</li>
+                </ul>
+            `;
+            
+            elementDiv.innerHTML = cardText;
+            container.append(elementDiv);
+        }
+
        
-      </div>
-   </div>
-   <table id="table">
-    <thead id="table_head">
-    </thead>
-    <tbody id="table_body">
-    </tbody>
-    </table>
-   <script>
-   const wines = [
-    { "Year": 2023, "Total Wine per Resident": "2.68 gals", "Total Wine Gallons": "899 million" },
-    { "Year": 2022, "Total Wine per Resident": "2.96 gals", "Total Wine Gallons": "986 million" },
-    { "Year": 2021, "Total Wine per Resident": "3.16 gals", "Total Wine Gallons": "1.06 billion" },
-    { "Year": 2020, "Total Wine per Resident": "3.12 gals", "Total Wine Gallons": "1.04 billion" },
-    { "Year": 2019, "Total Wine per Resident": "2.94 gals", "Total Wine Gallons": "971 million" },
-    { "Year": 2018, "Total Wine per Resident": "3.00 gals", "Total Wine Gallons": "982 million" },
-    { "Year": 2017, "Total Wine per Resident": "2.97 gals", "Total Wine Gallons": "947 million" },
-    { "Year": 2016, "Total Wine per Resident": "2.93 gals", "Total Wine Gallons": "968 million" },
-    { "Year": 2015, "Total Wine per Resident": "2.87 gals", "Total Wine Gallons": "923 million" }
-];
-
-const headers = ["Year", "Total Wine per Resident", "Total Wine Gallons"];
-
-let table_body = document.getElementById("table_body");
-let table_head = document.getElementById("table_head");
-
-
-let headerRow = document.createElement("tr");
-headers.forEach(function (head) {
-    let th = document.createElement("th");
-    th.textContent = head;
-    headerRow.append(th);
-});
-table_head.append(headerRow);
-
-
-wines.forEach(function (wine) {
-    let tr = document.createElement("tr");
-    tr.innerHTML = `<td>${wine.Year}</td>
-                    <td>${wine["Total Wine per Resident"]}</td>
-                    <td>${wine["Total Wine Gallons"]}</td>`;
-    table_body.appendChild(tr);
-});
-
-
-   </script>
+        wines.forEach(wine => {
+            makecards(wine.Year, wine["Total Wine per Resident"], wine["Total Wine Gallons"]);
+        });
+    </script>
 </body>
 </html>
