@@ -35,47 +35,43 @@
         border: 4px groove #fbf8cc;
       }
 
-      table {
-        width: 100%;
-        margin-top: 20px;
-        border-collapse: collapse;
-      }
-
-      th, td {
-        padding: 0.75em;
-        text-align: left;
-        border: 1px solid #ddd;
-      }
-
-      th {
-        background-color: #f2f2f2;
-        color: #333;
-        font-weight: 600;
-      }
-
-      tr:nth-child(even) {
-        background-color: #f9f9f9;
-      }
-
       .box {
         display: flex;
-        gap: 10px;
+        gap: 20px;
         flex-direction: row;
         justify-content: center;
         align-items: center;
         margin: 0%;
         max-width: 768px;
-        vertical-align: text-top;
         flex-wrap: wrap;
         background-color: #b171f9;
       }
 
-      p {
+      .card {
+        background-color: #fac9c9;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 250px;
+        margin: 10px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+      }
+
+      .card h2 {
+        font-family: "Montserrat", serif;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .card p {
         font-family: "Noto Sans", serif;
         font-weight: 200;
-        font-style: normal;
-        line-height: 24px;
-        margin: 10px;
+        line-height: 1.6;
       }
 
       .highlight1 {
@@ -125,50 +121,40 @@
       </div>
     </div>
   </div>
+
+  <!-- Cards container -->
+  <div class="box" id="cards-container">
+    <!-- Cards will be inserted here dynamically -->
+  </div>
   
-  <!-- Add table structure here -->
-  <table>
-    <thead id="table_head">
-      <!-- Header row will be inserted here -->
-    </thead>
-    <tbody id="table_body">
-      <!-- Table rows will be inserted here -->
-    </tbody>
-  </table>
-  
-   <script>
-   const wines = [
-    { "Year": 2023, "Total Wine per Resident": "2.68 gals", "Total Wine Gallons": "899 million" },
-    { "Year": 2022, "Total Wine per Resident": "2.96 gals", "Total Wine Gallons": "986 million" },
-    { "Year": 2021, "Total Wine per Resident": "3.16 gals", "Total Wine Gallons": "1.06 billion" },
-    { "Year": 2020, "Total Wine per Resident": "3.12 gals", "Total Wine Gallons": "1.04 billion" },
-    { "Year": 2019, "Total Wine per Resident": "2.94 gals", "Total Wine Gallons": "971 million" },
-    { "Year": 2018, "Total Wine per Resident": "3.00 gals", "Total Wine Gallons": "982 million" },
-    { "Year": 2017, "Total Wine per Resident": "2.97 gals", "Total Wine Gallons": "947 million" },
-    { "Year": 2016, "Total Wine per Resident": "2.93 gals", "Total Wine Gallons": "968 million" },
-    { "Year": 2015, "Total Wine per Resident": "2.87 gals", "Total Wine Gallons": "923 million" }
-];
+  <script>
+    const wines = [
+      { "Year": 2023, "Total Wine per Resident": "2.68 gals", "Total Wine Gallons": "899 million" },
+      { "Year": 2022, "Total Wine per Resident": "2.96 gals", "Total Wine Gallons": "986 million" },
+      { "Year": 2021, "Total Wine per Resident": "3.16 gals", "Total Wine Gallons": "1.06 billion" },
+      { "Year": 2020, "Total Wine per Resident": "3.12 gals", "Total Wine Gallons": "1.04 billion" },
+      { "Year": 2019, "Total Wine per Resident": "2.94 gals", "Total Wine Gallons": "971 million" },
+      { "Year": 2018, "Total Wine per Resident": "3.00 gals", "Total Wine Gallons": "982 million" },
+      { "Year": 2017, "Total Wine per Resident": "2.97 gals", "Total Wine Gallons": "947 million" },
+      { "Year": 2016, "Total Wine per Resident": "2.93 gals", "Total Wine Gallons": "968 million" },
+      { "Year": 2015, "Total Wine per Resident": "2.87 gals", "Total Wine Gallons": "923 million" }
+    ];
 
-const headers = ["Year", "Total Wine per Resident", "Total Wine Gallons"];
+    const cardsContainer = document.getElementById("cards-container");
 
-let table_body = document.getElementById("table_body");
-let table_head = document.getElementById("table_head");
+    // Loop through the wines array and create a card for each entry
+    wines.forEach(function (wine) {
+      let card = document.createElement("div");
+      card.classList.add("card");
 
-let headerRow = document.createElement("tr");
-headers.forEach(function (head) {
-    let th = document.createElement("th");
-    th.textContent = head;
-    headerRow.append(th);
-});
-table_head.append(headerRow);
+      card.innerHTML = `
+        <h2>Year: ${wine.Year}</h2>
+        <p><strong>Total Wine per Resident:</strong> ${wine["Total Wine per Resident"]}</p>
+        <p><strong>Total Wine Gallons:</strong> ${wine["Total Wine Gallons"]}</p>
+      `;
 
-wines.forEach(function (wine) {
-    let tr = document.createElement("tr");
-    tr.innerHTML = `<td>${wine.Year}</td>
-                    <td>${wine["Total Wine per Resident"]}</td>
-                    <td>${wine["Total Wine Gallons"]}</td>`;
-    table_body.appendChild(tr);
-});
-   </script>
+      cardsContainer.appendChild(card);
+    });
+  </script>
 </body>
 </html>
