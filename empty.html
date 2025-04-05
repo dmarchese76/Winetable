@@ -1,160 +1,176 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Card Starter</title>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-
-      h1 {
-        font-family: "Montserrat", serif;
-        font-weight: 600;
-        font-style: normal;
-        margin: 10px 0px 20px 10px;
-        padding: auto;
-      }
-
-      h3 {
-        font-family: "Noto Sans", serif;
-        font-weight: 400;
-        font-style: normal;
-        margin: 10px;
-      }
-
-      .big-container {
-        display: inline-block;
-        vertical-align: text-top;
-        margin: 10px 0px 20px 10px;
-        border: 6px double rgb(63, 61, 61);
-        padding: 10px 0px;
-      }
-
-      #NorthAmerica {
-        background-color: #b942f0;
-        border: 4px groove #fbf8cc;
-      }
-
-      .box {
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Wine Consumption is decreasing</title>
+   
+   <style>
+    #cards-container {
         display: flex;
-        gap: 20px;
+        vertical-align: top;
+        margin: 5px;
         flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin: 0%;
-        max-width: 768px;
+        justify-content: space-around;
         flex-wrap: wrap;
-        background-color: #b171f9;
-      }
+    }
 
-      .card {
-        background-color: #fac9c9;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    .card{  /* Removed #container > div.cards */
+        width: 300px;
+        height: auto;
+        border: 5px solid #2a1616;
+        border-radius: 15px;
         padding: 20px;
-        width: 250px;
         margin: 10px;
+        background-color: #5d0404;
         text-align: center;
-        transition: transform 0.3s ease;
-      }
-
-      .card:hover {
-        transform: translateY(-10px);
-      }
-
-      .card h2 {
-        font-family: "Montserrat", serif;
-        font-weight: 600;
-        margin-bottom: 10px;
-      }
-
-      .card p {
-        font-family: "Noto Sans", serif;
-        font-weight: 200;
-        line-height: 1.6;
-      }
-
-      .highlight1 {
-        color: #67e47a;
-        font-weight: 600;
-      }
-
-      .highlight2 {
-        color: #4de5f6;
-        font-weight: 600;
-      }
-
-      @media (min-width: 991px) and (max-width: 1199px) {
-        .big-container {
-          max-width: 768px;
-          flex-wrap: wrap;
+    }
+    
+    @media (max-width: 600px) {
+        #container {
+            width: 250px;
         }
-      }
+    }
 
-      @media (max-width: 600px) {
-        .big-container {
-          max-width: 350px;
-          flex-wrap: wrap;
-        }
-      }
-
-      @media (min-width: 600px) and (max-width: 990px) {
-        .big-container {
-          max-width: 768px;
-          flex-wrap: wrap;
-        }
-      }
-    </style>
+    h1 {
+        font-family: "Merriweather Sans", sans-serif;
+        font-weight: bold;
+        font-size: 1.5em;
+        color: #a5adae;
+        text-align: center;
+    }
+        
+    h2 {
+        font-family: "Merriweather Sans", sans-serif;
+        font-size: 1.5em;
+        color: #b0b4b6;
+        text-align: justify;
+        line-height: 25px;
+    }
+    p {
+        font-family: "Merriweather Sans", sans-serif;
+        font-size: 1em;
+        color: #e69335;
+        text-align: justify;
+        line-height: 30px;
+    }
+    ul {
+        font-family: "Merriweather Sans", sans-serif;
+        font-size: 1em;
+        color: #d1cbc4;
+        line-height: 30px;
+        list-style-type: square;
+        padding-left: 0;
+    }
+    li {
+        list-style: none;
+    }
+   </style>  
 </head>
 <body>
-  <div class="box">
-    <div>
-      <div id="NorthAmerica" class="big-container">
-        <h1>North America</h1>
-        <h3>The Wine Industry in North America was the biggest importer in the world in 2024</h3>     
-        <p>According to U.S. Census Bureau Trade Data, North America exported <span class="highlight1">$460 million in 2024</span>, which is <span class="highlight1">$8 million less than in 2023</span></p>
+    <div id="button-container">
+        <h3>Category:</h3>
+        <button id="AllWine" value="Total wine">Total Wine</button>
+        <button id="Gallon" value="record2">Record per Gallon</button>
+        <button id="exports" value="record-exports">Record Exports</button> 
       </div>
-      <div id="UnitedStates" class="big-container">
-        <h1>United States</h1>
-        <h3>The Wine consumption in the U.S. has been declining over the last decade.</h3>
-        <p>Except for 2020, when it increased from <span class="highlight2">2.19 gals per resident in 2019 to 3.12 gals in 2020</span>, a trend that continued during 2021 reaching <span class="highlight2">3.16 gals per resident, before dropping again to 2.96 in 2022.</span></p>
+    
+      <div id="cards-container" class="box"></div>
+     
+       
       </div>
-    </div>
-  </div>
-
-  <!-- Cards container -->
-  <div class="box" id="cards-container">
-    <!-- Cards will be inserted here dynamically -->
-  </div>
-  
-  <script>
-    const wines = [
-      { "Year": 2023, "Total Wine per Resident": "2.68 gals", "Total Wine Gallons": "899 million" },
-      { "Year": 2022, "Total Wine per Resident": "2.96 gals", "Total Wine Gallons": "986 million" },
-      { "Year": 2021, "Total Wine per Resident": "3.16 gals", "Total Wine Gallons": "1.06 billion" },
-      { "Year": 2020, "Total Wine per Resident": "3.12 gals", "Total Wine Gallons": "1.04 billion" },
-      { "Year": 2019, "Total Wine per Resident": "2.94 gals", "Total Wine Gallons": "971 million" },
-      { "Year": 2018, "Total Wine per Resident": "3.00 gals", "Total Wine Gallons": "982 million" },
-      { "Year": 2017, "Total Wine per Resident": "2.97 gals", "Total Wine Gallons": "947 million" },
-      { "Year": 2016, "Total Wine per Resident": "2.93 gals", "Total Wine Gallons": "968 million" },
-      { "Year": 2015, "Total Wine per Resident": "2.87 gals", "Total Wine Gallons": "923 million" }
-    ];
-
-    const cardsContainer = document.getElementById("cards-container");
-
-    // Loop through the wines array and create a card for each entry
-    wines.forEach(function (wine) {
-      let card = document.createElement("div");
-      card.classList.add("card");
-
-      card.innerHTML = `
-        <h2>Year: ${wine.Year}</h2>
-        <p><strong>Total Wine per Resident:</strong> ${wine["Total Wine per Resident"]}</p>
-        <p><strong>Total Wine Gallons:</strong> ${wine["Total Wine Gallons"]}</p>
-      `;
-
-      cardsContainer.appendChild(card);
-    });
-  </script>
+    
+      <script>
+        
+        const wines = [
+          { "Year": 2023, "Total Wine per Resident": "2.68 gals", "Total Wine Gallons": "899 million", "Exports": "1.23 Million", "Volume Exported in Gallons": "218 Million of Liters" },
+          { "Year": 2022, "Total Wine per Resident": "2.96 gals", "Total Wine Gallons": "986 million", "Exports": "1.46 Million", "Volume Exported in Gallons": "292.6 Million of Liters" },
+          { "Year": 2021, "Total Wine per Resident": "3.16 gals", "Total Wine Gallons": "1060 million", "Exports": "1.44 Million", "Volume Exported in Gallons": "338.4 Million of Liters" },
+          { "Year": 2020, "Total Wine per Resident": "3.12 gals", "Total Wine Gallons": "1040 million", "Exports": "1.29 Million", "Volume Exported in Gallons": "375.2 Million of Liters" },
+          { "Year": 2019, "Total Wine per Resident": "2.94 gals", "Total Wine Gallons": "971 million", "Exports": "1.36 Million", "Volume Exported in Gallons": "368.4 Million of Liters" },
+          { "Year": 2018, "Total Wine per Resident": "3.00 gals", "Total Wine Gallons": "982 million", "Exports": "1.45 Million", "Volume Exported in Gallons": "372.2 Million of Liters" },
+          { "Year": 2017, "Total Wine per Resident": "2.97 gals", "Total Wine Gallons": "947 million", "Exports": "1.52 Million", "Volume Exported in Gallons": "376.9 Million of Liters" },
+          { "Year": 2016, "Total Wine per Resident": "2.93 gals", "Total Wine Gallons": "968 million", "Exports": "1.61 Million", "Volume Exported in Gallons": "409.2 Million of Liters" },
+          { "Year": 2015, "Total Wine per Resident": "2.87 gals", "Total Wine Gallons": "923 million", "Exports": "1.59 Million", "Volume Exported in Gallons": "457.2 Million of Liters" },
+          { "Year": 2014, "Total Wine per Resident": "2.82 gals", "Total Wine Gallons": "900 million", "Exports": "1.49 Million", "Volume Exported in Gallons": "439.4 Million of Liters" }
+        ];
+    
+       
+        let allWineButton = document.querySelector("#AllWine");
+        let gallonButton = document.querySelector("#Gallon");
+        let exportsButton = document.querySelector("#exports");
+        let cardsContainer = document.querySelector("#cards-container");
+    
+        
+        function createCard(wine) {
+          const card = document.createElement("div");
+          card.classList.add("card");
+          card.innerHTML = `
+            <h2>Year: ${wine.Year}</h2>
+            <p><strong>Total Wine per Resident:</strong> ${wine["Total Wine per Resident"]}</p>
+            <p><strong>Total Wine Gallons:</strong> ${wine["Total Wine Gallons"]}</p>
+            <p><strong>Exports:</strong> ${wine.Exports}</p>
+            <p><strong>Volume Exported in Gallons:</strong> ${wine["Volume Exported in Gallons"]}</p>
+          `;
+          return card;
+        }
+    
+       
+        function displayAllCards() {
+          cardsContainer.innerHTML = ""; 
+          wines.forEach(function(wine) {
+            const card = createCard(wine);
+            cardsContainer.append(card); 
+          });
+        }
+    
+       
+        function showHighestGallon() {
+          let highestWine = wines[0];
+          for (let i = 1; i < wines.length; i++) {
+            let currentWineGallons = Number(wines[i]["Total Wine Gallons"].replace(/[^0-9.-]+/g, ''));
+            let highestWineGallons = Number(highestWine["Total Wine Gallons"].replace(/[^0-9.-]+/g, ''));
+            if (currentWineGallons > highestWineGallons) {
+              highestWine = wines[i];
+            }
+          }
+          cardsContainer.innerHTML = ""; 
+          const card = createCard(highestWine);
+          cardsContainer.append(card); 
+        }
+    
+        
+        function showHighestExports() {
+          let highestWine = wines[0];
+          for (let i = 1; i < wines.length; i++) {
+            let currentExports = Number(wines[i]["Exports"].replace(/[^0-9.-]+/g, ''));
+            let highestExports = Number(highestWine["Exports"].replace(/[^0-9.-]+/g, ''));
+            if (currentExports > highestExports) {
+              highestWine = wines[i];
+            }
+          }
+          cardsContainer.innerHTML = ""; 
+          const card = createCard(highestWine);
+          cardsContainer.append(card);
+        }
+    
+        
+        allWineButton.addEventListener("click", function() {
+          displayAllCards();
+        });
+    
+        gallonButton.addEventListener("click", function() {
+          showHighestGallon();
+        });
+    
+        exportsButton.addEventListener("click", function() {
+          showHighestExports();
+        });
+    
+        allWineButton.click();
+    </script>
 </body>
 </html>
